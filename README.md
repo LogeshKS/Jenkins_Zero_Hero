@@ -25,4 +25,40 @@
   <li>Cloud Based Jenkins: Some cloud providers offer Jenkins pre-configured or managed as part of their DevOps offerings (e.g., AWS CodeBuild with Jenkins integration).</li>
 </ul>
 
+**Installing Jenkins on Google Compute Engine**
+
+Youtube Video ->
+
+**Creating Virtual Machine in GCP**
+
+
+**Run the below commands to Install Jenkins**
+
+Install Java
+
+```
+sudo apt update
+sudo apt install openjdk-17-jre
+```
+
+Verify Java is Installed
+
+```
+java -version
+```
+
+Now, you can proceed with installing Jenkins
+
+```
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+```
+
+**Note: ** By default, Jenkins will not be accessible to the external world due to the inbound traffic restriction by AWS. Open port 8080 in the inbound traffic rules as show below.
+
 
